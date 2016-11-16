@@ -38,7 +38,7 @@ THEME = {
 
 @widgets = {left:[],center:[],right:[]}
 @widgets[:left] << OpenboxWorkspace.new
-#@widgets[:left] << FancyBattery.new(indicator: :battery, format: "$symbol $indicator $percentage")
+@widgets[:left] << FancyBattery.new(indicator: :battery, format: "$symbol $indicator $percentage")
 @widgets[:left] << RAM.new(format: "$indicator $percentage")
 @widgets[:center] << Volume.new
 
@@ -72,7 +72,7 @@ def readpipe(pipe)
 rescue Exception => e
 end
 
-IO.popen("lemonbar -a 20 -F '#{THEME[:fg]}' -B '#{THEME[:bg]}' -f '#{THEME[:font]}' -f 'FontAwesome-12'", "r+") do |pipe|
+IO.popen("lemonbar -a 20 -F '#{THEME[:fg]}' -B '#{THEME[:bg]}' -f '#{THEME[:font]}' -f 'Droid Sans.10' -f 'FontAwesome-12'", "r+") do |pipe|
   loop do
     offset = 0
     pipe.puts @widgets.map{ |k,widgets|
